@@ -13,7 +13,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const port = configService.get<string>('server.port');
-  console.log(process.env.COOKIE_SECRET)
 
   app.use(cookieParser(process.env.COOKIE_SECRET));
   app.use(bodyParser.json());
